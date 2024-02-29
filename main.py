@@ -19,8 +19,8 @@ def get_response(user_input):
 # Streamlit UI components
 st.title("HinduGPT Bot")
 header_container = st.container()
-# header_container.image("images/swastiklogo.png", width=50, height=50)  # Replace "your_logo.png" with the path to your logo image
-header_container.write("Welcome to Hindu History Chatbot")
+# header_container.image("./images/swastiklogo.png", width=50)  
+header_container.write("Pranam! Welcome to HinduGPT.")
 
 st.sidebar.title("Navigation")
 
@@ -28,7 +28,7 @@ st.sidebar.title("Navigation")
 page = st.sidebar.radio("Go to", ["Home", "Explore"])
 
 if page == "Home":
-    st.header("Welcome to HinduGPT bot.")
+    # st.header("")
     user_question = st.text_input("Ask me anything:")
     if user_question:
         bot_response = get_response(user_question)

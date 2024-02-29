@@ -17,12 +17,23 @@ def get_response(user_input):
         return "I'm sorry, I don't understand that question."
 
 # Streamlit UI components
-st.title("Chatbot Application")
-user_question = st.text_input("Ask me anything:")
+st.title("HinduGPT")
+st.sidebar.title("Navigation")
 
-# Check if the user has asked a question
-if user_question:
-    # Get the response from the chatbot function
-    bot_response = get_response(user_question)
-    # Display the response
-    st.text_area("Bot's response:", value=bot_response, height=100)
+# Website navigation links
+page = st.sidebar.radio("Go to", ["Home", "About"])
+
+if page == "Home":
+    st.header("Welcome to HinduGPT")
+    user_question = st.text_input("Ask me anything:")
+    if user_question:
+        bot_response = get_response(user_question)
+        st.text_area("Bot's response:", value=bot_response, height=100)
+
+elif page == "About":
+    st.header("About")
+    st.write("This chatbot provides answers to questions related to Hindu history and epics.")
+
+# Footer with GitHub link
+st.sidebar.markdown("---")
+st.sidebar.markdown("[GitHub](https://github.com/mnitin3/HinduGPT)")
